@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the file storage class for AirBnB"""
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 import os
 import models.base_model
 from models.state import State
@@ -56,4 +56,7 @@ class DBStorage():
 
     def reload(self):
         """ reload """
-                
+        models.base_model.Base.metadata.create_all(self.__engine)
+        sessionFactory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(sessionFactory)
+        self.__session = Session()
