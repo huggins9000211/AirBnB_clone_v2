@@ -15,6 +15,7 @@ class State(BaseModel, Base):
     state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
 
     def cities(self):
+        """ cities getter """
         result = {}
         allStates = models.storage.all(State)
         for x, y in allStates.items():
