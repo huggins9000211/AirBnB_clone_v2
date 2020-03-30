@@ -35,6 +35,7 @@ class FileStorage:
         return results
 
     def delete(self, obj=None):
+        """ delete """
         self.__objects = {key:val for key, val in self.__objects.items() if val is not obj}
 
     def new(self, obj):
