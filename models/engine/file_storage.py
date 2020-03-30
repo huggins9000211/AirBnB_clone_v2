@@ -28,15 +28,13 @@ class FileStorage:
         results = {}
         if obj == None:
             return self.__objects
-        #print("*\n*\n*\n*\n*\n*\n{}*\n*\n*\n*\n*\n*\n*\n".format(obj.__name__))
         for x, y in self.__objects.items():
             if obj.__name__ == x.split(".")[0]:
                 results[x] = y
         return results
 
     def delete(self, obj=None):
-        """ delete 
-        """
+        """ delete """
         self.__objects = {key:val for key, val in self.__objects.items() if val is not obj}
 
     def new(self, obj):
