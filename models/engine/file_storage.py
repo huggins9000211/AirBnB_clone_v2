@@ -28,7 +28,7 @@ class FileStorage:
         results = {}
         if obj == None:
             return self.__objects
-        print("*\n*\n*\n*\n*\n*\n{}*\n*\n*\n*\n*\n*\n*\n".format(obj.__name__))
+        #print("*\n*\n*\n*\n*\n*\n{}*\n*\n*\n*\n*\n*\n*\n".format(obj.__name__))
         for x, y in self.__objects.items():
             if obj.__name__ == x.split(".")[0]:
                 results[x] = y
