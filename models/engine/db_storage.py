@@ -43,10 +43,12 @@ class DBStorage():
     
     def new(self, obj):
         """ new """
+        print("&&")
         self.__session.add(obj)
     
     def save(self):
         """ save """
+        print("##")
         self.__session.commit()
 
     def delete(self, obj=None):

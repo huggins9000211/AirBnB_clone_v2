@@ -71,6 +71,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 sanatizedValue = int(keyValue[1])
             setattr(obj, keyValue[0], sanatizedValue)
+        storage.new(obj)
         obj.save()
     def do_show(self, line):
         """Prints the string representation of an instance
