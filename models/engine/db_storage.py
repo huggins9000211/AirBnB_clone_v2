@@ -35,10 +35,10 @@ class DBStorage():
         if cls is None:
             for name, x in self.allTypes.items():
                 for y in self.__session.query(x):
-                    results["{}.{}".format(name, y.id)] 
+                    results["{}.{}".format(name, y.id)] = y
             return results
         for y in self.__session.query(self.allTypes[cls]):
-            results["{}.{}".format(cls, y.id)] 
+            results["{}.{}".format(cls, y.id)] = y
         return results
     
     def new(self, obj):
