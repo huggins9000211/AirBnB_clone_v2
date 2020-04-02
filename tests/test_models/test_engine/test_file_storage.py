@@ -38,6 +38,7 @@ class TestFileStorage(unittest.TestCase):
         except Exception:
             pass
 
+    @unittest.skipIf(os.getenv("HBNB_TYPE_STORAGE") == "db", "Wrong storage")
     def test_pep8_FileStorage(self):
         """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
