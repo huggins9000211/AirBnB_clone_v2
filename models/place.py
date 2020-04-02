@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the place class"""
+"""This is the place class, okay"""
 from models.base_model import BaseModel, Base
 import models
 from models.amenity import Amenity
