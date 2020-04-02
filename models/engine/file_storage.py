@@ -26,7 +26,7 @@ class FileStorage:
             returns a dictionary of __object
         """
         results = {}
-        if obj == None:
+        if obj is None:
             return self.__objects
         for x, y in self.__objects.items():
             if obj.__name__ == x.split(".")[0]:
@@ -35,7 +35,10 @@ class FileStorage:
 
     def delete(self, obj=None):
         """ delete """
-        self.__objects = {key:val for key, val in self.__objects.items() if val is not obj}
+        self.__objects = {key: val
+                          for key, val
+                          in self.__objects.items()
+                          if val is not obj}
 
     def new(self, obj):
         """sets __object to given obj
