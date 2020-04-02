@@ -16,8 +16,8 @@ class DBStorage():
     """ db """
     __engine = None
     __session = None
-    allTypes = {"User": User, "State": State, "City": City, "Amenity":\
-         Amenity, "Place": Place, "Review": Review}
+    allTypes = {"User": User, "State": State, "City": City,
+                "Amenity": Amenity, "Place": Place, "Review": Review}
 
     def __init__(self):
         """ init """
@@ -28,7 +28,7 @@ class DBStorage():
                         'HBNB_MYSQL_DB')), pool_pre_ping=True)
         if os.getenv('HBNB_ENV') == 'test':
             models.base_model.Base.metadata.drop_all(self.__engine)
-    
+
     def all(self, cls=None):
         """ all """
         results = {}
@@ -40,11 +40,11 @@ class DBStorage():
         for y in self.__session.query(self.allTypes[cls]):
             results["{}.{}".format(cls, y.id)] = y
         return results
-    
+
     def new(self, obj):
         """ new """
         self.__session.add(obj)
-    
+
     def save(self):
         """ save """
         self.__session.commit()
@@ -57,6 +57,7 @@ class DBStorage():
     def reload(self):
         """ reload """
         models.base_model.Base.metadata.create_all(self.__engine)
-        sessionFactory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        sessionFactory = sessionmaker(bind=self.__engine,
+                                      expire_on_commit=False)
         Session = scoped_session(sessionFactory)
         self.__session = Session()
