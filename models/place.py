@@ -3,7 +3,7 @@
 from models.base_model import BaseModel, Base
 import models
 from models.amenity import Amenity
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Table
 
 
 class Place(BaseModel, Base):
@@ -34,15 +34,20 @@ class Place(BaseModel, Base):
     longitude = Column(Float)
     amenity_ids = []
 
-    # @property
-    # def amenities(self):
-    #     result = []
-    #     allAm = models.storage.all(Amenity)
-    #     for x, y in allAm.items():
-    #         if x.split('.')[1] in self.amenity_ids:
-    #             result.append(y)
+    place_amenity = Table('place_amenity', Base.metadata,
+        Column('places_id', String(60), ForeignKey('places.id'), primary_key=True, nullable=False),
+        Column('amenities_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
+    )
+    
+    @property
+    def amenities(self):
+        result = []
+        allAm = models.storage.all(Amenity)
+        for x, y in allAm.items():
+            if x.split('.')[1] in self.amenity_ids:
+                result.append(y)
               
-    # @amenities.setter
-    # def amenities(self, x):
-    #     if x.__name__ == Amenity:
-    #         self.amenity_ids.append(x.id)
+    @amenities.setter
+    def amenities(self, x):
+        if x.__name__ == Amenity:
+            self.amenity_ids.append(x.id)
