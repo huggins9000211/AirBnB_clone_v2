@@ -34,11 +34,20 @@ class Place(BaseModel, Base):
     longitude = Column(Float)
     amenity_ids = []
 
-    place_amenity = Table('place_amenity', Base.metadata,
-        Column('places_id', String(60), ForeignKey('places.id'), primary_key=True, nullable=False),
-        Column('amenities_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
-    )
-    
+    place_amenity = Table('place_amenity',
+                          Base.metadata,
+                          Column('places_id',
+                                 String(60),
+                                 ForeignKey('places.id'),
+                                 primary_key=True,
+                                 nullable=False),
+                          Column('amenities_id',
+                                 String(60),
+                                 ForeignKey('amenities.id'),
+                                 primary_key=True,
+                                 nullable=False)
+                          )
+
     @property
     def amenities(self):
         result = []
@@ -46,7 +55,7 @@ class Place(BaseModel, Base):
         for x, y in allAm.items():
             if x.split('.')[1] in self.amenity_ids:
                 result.append(y)
-              
+
     @amenities.setter
     def amenities(self, x):
         if x.__name__ == Amenity:
