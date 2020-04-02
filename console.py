@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """This is the console for AirBnB"""
 import cmd
 from models import storage
@@ -73,6 +74,7 @@ class HBNBCommand(cmd.Cmd):
             setattr(obj, keyValue[0], sanatizedValue)
         storage.new(obj)
         obj.save()
+
     def do_show(self, line):
         """Prints the string representation of an instance
         Exceptions:
