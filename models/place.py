@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """This is the place class"""
 from models.base_model import BaseModel, Base
+import models
+from models.amenity import Amenity
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 
 
@@ -31,3 +33,16 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     amenity_ids = []
+
+    @property
+    def amenities(self):
+        result = []
+        allAm = models.storage.all(Amenity)
+        for x, y in allAm.items():
+            if x.split('.')[1] in self.amenity_ids:
+                result.append(y)
+              
+    @amenities.setter
+    def amenities(self, x):
+        if x.__name__ == Amenity:
+            self.amenity_ids.append(x.id)
