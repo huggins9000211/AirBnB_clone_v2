@@ -23,6 +23,7 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 
 To start, navigate to the project folder and enter `./console.py` in the shell.
 
+
 #### Create
 `create <class name>`
 Ex:
