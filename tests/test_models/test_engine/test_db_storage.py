@@ -16,11 +16,19 @@ from models.review import Review
 class TestFileStorage(unittest.TestCase):
     '''this will test the DB storage'''
 
-    def test_pep8_FileStorage(self):
+    def test_pep8_DBStorage(self):
         """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/engine/db_storage.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_engine(self):
+        """Tests engine connection"""
+        pass
+
+    def test_storage(self):
+        """Tests storage"""
+        pass
 
 if __name__ == "__main__":
     unittest.main()
