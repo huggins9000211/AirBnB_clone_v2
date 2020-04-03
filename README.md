@@ -12,6 +12,7 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 * Place
 * Review
 
+
 ### Commands:
 * create - create an object
 * show - show an object (based on id)
