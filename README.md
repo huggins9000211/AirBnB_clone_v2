@@ -35,6 +35,7 @@ Ex:
 Ex:
 `show User my_id`
 
+
 #### Destroy
 `destroy <class name> <object id>`
 Ex:
