@@ -27,6 +27,7 @@ To start, navigate to the project folder and enter `./console.py` in the shell.
 Ex:
 `create BaseModel`
 
+
 #### Show
 `show <class name> <object id>`
 Ex:
