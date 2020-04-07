@@ -13,7 +13,7 @@ def do_pack():
     )
     command = "tar -cvzf {} web_static".format(cname)
     with settings(warn_only=True):
-        #local("mkdir -p versions")
+        local("mkdir -p versions")
         result = local(command)
     if result.failed or result.return_code != 0:
         abort()
