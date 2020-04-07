@@ -18,6 +18,6 @@ def do_pack():
             result = local(command)
         if result.failed:
             return None
-        return cname
+        #return cname
     except Exception:
         return None
