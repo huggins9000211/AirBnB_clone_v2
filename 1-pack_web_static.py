@@ -12,6 +12,7 @@ def do_pack():
         dt.year, dt.month, dt.day, dt.hour, dt.minute
     )
     command = "tar -cvzf {} web_static".format(cname)
+    print("Packing web_static to {}".format(cname))
     with settings(warn_only=True):
         local("mkdir -p versions")
         result = local(command)
