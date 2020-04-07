@@ -17,7 +17,5 @@ def do_pack():
         local("mkdir -p versions")
         result = local(command)
     if result.failed or result.return_code != 0:
-        abort()
-        print("aerhyaehehtaht")
         return None
     return "AirBnB_clone_v2/web_static/{}".format(cname)
