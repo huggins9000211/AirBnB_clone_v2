@@ -17,7 +17,6 @@ def do_pack():
             local("mkdir -p versions")
             result = local(command)
         if result.failed:
-            print("ahrwwaerha")
             return None
         return cname
     except Exception:
