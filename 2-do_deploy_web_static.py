@@ -45,7 +45,7 @@ def do_deploy(archive_path):
             return None
         if run("rm -rf /data/web_static/current").failed:
             return None
-        if run("ln -s /data/web_static/releases/{}/ /data/web_static/cur\
-        rent".format(we)).failed:
+        if run("ln -s /data/web_static/releases/{}/ \
+        /data/web_static/current".format(we)).failed:
             return None
         return True
