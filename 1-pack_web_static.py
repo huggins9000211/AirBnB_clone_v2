@@ -15,6 +15,6 @@ def do_pack():
     with settings(warn_only=True):
         local("mkdir -p versions")
         result = local(command)
-    if result.failed:
+    if result.failed or result.return_code != 0:
         return None
     return cname
