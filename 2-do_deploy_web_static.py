@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ test """
-from fabric.api import local, settings, abort, run, put
+from fabric.api import local, settings, abort, run, put, env
 import fabric
 import datetime
 
 
+env.hosts = ["34.73.26.158", "34.73.239.89"]
 def do_pack():
     """ test """
     dt = datetime.datetime.now()
@@ -21,7 +22,6 @@ def do_pack():
     return "AirBnB_clone_v2/web_static/{}".format(cname)
 
 def do_deploy(archive_path):
-    env.hosts = ["34.73.26.158", "34.73.239.89"]
     noe = archive_path[9:-4]
     we = archive_path[9:]
     with settings(warn_only=True):
