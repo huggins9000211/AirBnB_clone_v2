@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ test """
-from fabric.api import local, settings
+from fabric.api import local, settings, abort
 import fabric
 import datetime
 
@@ -16,5 +16,6 @@ def do_pack():
         local("mkdir -p versions")
         result = local(command)
     if result.failed or result.return_code != 0:
+        abort()
         return None
     return cname
