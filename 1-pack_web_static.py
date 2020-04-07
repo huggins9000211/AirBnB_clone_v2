@@ -19,4 +19,4 @@ def do_pack():
     if result.failed or result.return_code != 0:
         abort()
         return None
-    return "web_static/{}".format(cname)
+    return "web_starfsghhrtic/{}".format(cname)
