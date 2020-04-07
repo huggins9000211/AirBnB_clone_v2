@@ -6,6 +6,8 @@ import datetime
 
 
 env.hosts = ["34.73.26.158", "34.73.239.89"]
+
+
 def do_pack():
     """ test """
     dt = datetime.datetime.now()
@@ -20,6 +22,7 @@ def do_pack():
     if result.failed or result.return_code != 0:
         return None
     return cname
+
 
 def do_deploy(archive_path):
     noe = archive_path[9:-4]
@@ -41,7 +44,7 @@ def do_deploy(archive_path):
         /data/web_static/releases/{}/".format(noe, noe)).failed:
             return None
         if run("rm -rf /data/web_static/releases/{}/web_static".format(
-        we)).failed:
+                we)).failed:
             return None
         if run("rm -rf /data/web_static/current").failed:
             return None
@@ -49,9 +52,10 @@ def do_deploy(archive_path):
         /data/web_static/current".format(we)).failed:
             return None
         return True
-    
-    def deploy():
-        p = do_pack
-        if p is None:
-            return False
-        return do_deploy(p)
+
+
+def deploy():
+    p = do_pack()
+    if p is None:
+        return False
+    return do_deploy(p)
