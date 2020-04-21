@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ test """
 from flask import Flask, escape, request
 
