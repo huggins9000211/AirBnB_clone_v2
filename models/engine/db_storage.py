@@ -45,6 +45,9 @@ class DBStorage():
         """ new """
         self.__session.add(obj)
 
+    def close(self):
+        self.__session.remove()
+
     def save(self):
         """ save """
         self.__session.commit()

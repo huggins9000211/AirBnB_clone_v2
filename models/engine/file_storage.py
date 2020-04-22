@@ -58,6 +58,9 @@ class FileStorage:
         with open(self.__file_path, 'w', encoding="UTF-8") as f:
             json.dump(my_dict, f)
 
+    def close(self):
+        self.reload()
+
     def reload(self):
         """serialize the file path to JSON file path
         """
