@@ -9,11 +9,9 @@ app = Flask(__name__)
 @app.route('/states_list', strict_slashes=False)
 def hello():
     """ test """
-    statelist = {}
-    allStates = storage.all(State)
-    for x, y in allStates.items():
-        statelist[y.id] = y.name
-    return render_template('7-states_list.html', statelist = statelist)
+    allStates = list(storage.all(State).values())
+    allStates.sort(key=lambda x: x.name)
+    return render_template('7-states_list.html', statelist = allStates)
 
 
 @app.teardown_appcontext
