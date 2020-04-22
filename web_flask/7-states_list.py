@@ -11,7 +11,7 @@ def hello():
     """ test """
     allStates = list(storage.all(State).values())
     allStates.sort(key=lambda x: x.name)
-    return render_template('7-states_list.html', statelist = allStates)
+    return render_template('7-states_list.html', statelist=allStates)
 
 
 @app.teardown_appcontext
