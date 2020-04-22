@@ -31,6 +31,7 @@ class DBStorage():
 
     def all(self, cls=None):
         """ all """
+        cls = cls.__name__
         results = {}
         if cls is None:
             for name, x in self.allTypes.items():
@@ -46,7 +47,7 @@ class DBStorage():
         self.__session.add(obj)
 
     def close(self):
-        self.__session.remove()
+        self.__session.close()
 
     def save(self):
         """ save """
